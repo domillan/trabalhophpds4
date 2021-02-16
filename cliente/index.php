@@ -1,6 +1,6 @@
 <?php
-include("../model/pastel.php");
+include("../model/Cliente.php");
 
-Pastel::sabor('limão');
+print_r(Cliente::all());
 include("../view/cliente.html");
 ?><a href='../compra/index.php'>Compra</a>
