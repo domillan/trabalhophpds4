@@ -5,7 +5,7 @@ class DB
     private static $lastQuery = '""', $debug=false;
     const clausesSelect = ['select'=>'select ?', 'table'=>' from ?', 'where'=>' where ?', 'groupBy'=>' group by ?', 'having'=>' having ?', 'orderBy'=>' order by ?', 'limit'=>' limit ?', 'offset'=>' offset ?'];
     
-    public static function join($table1, $item1, $on, $type='inner')
+    public static function join($table1, $table2, $on, $type='inner')
     {
         return "($table1 $type join $table2 on $on)";
     }

@@ -197,7 +197,7 @@ class DBClass
         return $this->relations[$function];
     }
 
-    public function ManyToOne($classOutra, $fk)
+    public function manyToOne($classOutra, $fk)
     {
         $function = debug_backtrace()[1]["function"];
         if(!isset($this->relations[$function]))
@@ -205,7 +205,7 @@ class DBClass
         return $this->relations[$function];
     }
 
-    public function ManyToMany($classOutra, $tabelaRel, $fkOutra, $fkLocal, $pivotDefault=[])
+    public function manyToMany($classOutra, $tabelaRel, $fkOutra, $fkLocal, $pivotDefault=[])
     {
         $function = debug_backtrace()[1]["function"];
         if(!isset($this->relations[$function]))
