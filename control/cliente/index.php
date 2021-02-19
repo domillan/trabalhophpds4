@@ -1,7 +1,8 @@
 <?php
+echo 'foi';
+/*
 
-//DB::debugOn();
-
+DB::debugOn();
 
 $c = Cliente::create(['nome'=>'Eduarda Martins', 'cpf'=>'123456888', 'email'=>'ed@gm.com', 'senha'=>'12345678']);
 
@@ -16,5 +17,7 @@ $co->cliente()->set($c);
 $co->save();
 
 print_r($c->compras()->all());
+
+*/
 
 ?>
