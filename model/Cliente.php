@@ -1,5 +1,4 @@
 <?php
-include("../tools/DBClass.php");
 
 class Cliente extends DBClass{
 	
