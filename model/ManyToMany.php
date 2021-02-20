@@ -171,6 +171,12 @@ class ManyToMany implements Relation
         $this->pivots[$id] = $data;
     }
 
+	public function getPivotField($obj, $field)
+	{
+		$pivot = $this->getPivot($obj);
+		return  ($pivot!=null)? $pivot[$field] : null;
+	}
+
     public function getPivot($obj)
     {
         $this->fillPivots();
@@ -209,7 +215,12 @@ class ManyToMany implements Relation
         {
             $arguments = $arguments[0];
         }
-        $this->lista = array_diff($this->lista, array_map(['DBClass', 'onlyPrimary'], $arguments));
+		$arguments = array_map(['DBClass', 'onlyPrimary'], $arguments);
+		foreach($arguments as $item)
+		{
+			unset($this->pivots[$item]);
+		}
+        $this->lista = array_diff($this->lista, $arguments);
     }
     public function save()
     {

@@ -31,6 +31,8 @@ class DBClass
             $retorno[]=$obj;
         }
         if(sizeof($retorno)==1) $retorno = $retorno[0];
+		elseif(sizeof($retorno)==0) $retorno = new $class();
+		
         return $retorno;
     }
 
