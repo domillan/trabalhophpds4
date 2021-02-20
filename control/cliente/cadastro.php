@@ -1,5 +1,5 @@
 <?php
-include("view/cliente.php");
+include("view/cliente-cadastro.php");
 if ($_SERVER['REQUEST_METHOD'] == 'POST'){
 	$nome = filter_var($_REQUEST['nome'], FILTER_SANITIZE_STRING);
 	$cpf = filter_var($_REQUEST['cpf'], FILTER_SANITIZE_STRING);

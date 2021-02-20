@@ -15,30 +15,16 @@
   <link href="<?=root('css/style.min.css')?>" rel="stylesheet">
 </head>
 <body>
-<form enctype="multipart/form-data" method="POST" action="cadastro.php">
-<label>Nome: <input type='text' name='nome'></label><br>
-<label>Descrição: <input type='text' name='descricao'></label><br>
-<label>Preço: <input type='number' name='preco'></label><br>
+<form enctype="multipart/form-data" method="POST" action="alteracao.php">
+<label>Nome: <input type='text' name='inserir_nome' value="<?php echo $produto->nome?>"></label><br>
+<label>Descrição: <input type='text' name='inserir_descricao' value="<?php echo $produto->descricao?>"></label><br>
+<label>Preço: <input type='number' name='inserir_preco' value="<?php echo $produto->preco?>"></label><br>
+<input type="hidden" name="id_produto" value="<?php echo $produto->id?>">
 <input type="hidden" name="MAX_FILE_SIZE" value="50000000">
-<label>Foto: <input type='file' name='arquivo'></label><br>
-<input type='submit' name="cadastrar">
+<label>Foto: <input type='file' name='inserir_arquivo'></label><br>
+<input name="inserir_alteracao" type='submit'>
 </form>
 <br>
-<br>
-Lista de produtos
-<ul class="list-group">
-<?php foreach(Produto::all() as $produto_view):?>
-<br>
-  <li class="list-group-item">
-  <?php echo $produto_view->id ?> - <?php echo $produto_view->nome ?><br>
-  <form action="/trabalhophpds4/produto/alteracao.php" method="post">
-  <input type="hidden" name="produto" value="<?php echo $produto_view->id?>"/>
-  <input type="submit" name="alterar" value="Alterar"/>
-  </form> 
-  | <a href="">Excluir</a>
-  </li>
- <?php endforeach;?>
-</ul>
 
 <!-- SCRIPTS -->
   <!-- JQuery -->

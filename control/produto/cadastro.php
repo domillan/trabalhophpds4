@@ -1,6 +1,5 @@
 <?php
-include("view/produto-cadastro.php");
-if ($_SERVER['REQUEST_METHOD'] == 'POST'){
+if (isset($_POST['cadastrar'])){
 	$produto = new Produto();
 	$nome = filter_var($_REQUEST['nome'], FILTER_SANITIZE_STRING);
 	$descricao = filter_var($_REQUEST['descricao'], FILTER_SANITIZE_STRING);
@@ -22,4 +21,6 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST'){
 		echo var_dump($produto);
 	}
 }
-?><a href='../compra/index.php'>Compra</a>
+include("view/produto-cadastro.php");
+?>
+<a href='../compra/index.php'>Compra</a>
