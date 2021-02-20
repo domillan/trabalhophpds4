@@ -13,7 +13,7 @@ class Compra extends DBClass{
 	
 	public function produtos()
     {
-		return $this->manyToMany(Categoria::class, 'produto_compra', 'produto_id', 'compra_id', ['quantidade'=>1]);
+		return $this->manyToMany(Produto::class, 'produto_compra', 'produto_id', 'compra_id', ['quantidade'=>1]);
     }
 	
 	public function formaPagamento()

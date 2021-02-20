@@ -17,11 +17,17 @@ class DB
 
     public static function in($field, $array)
     {
+		if(sizeof($array)==0)
+			return 'false';
+		
         $lista = implode($array, ',');
         return "$field in ($lista)";
     }
     public static function notIn($field, $array)
     {
+		if(sizeof($array)==0)
+			return 'true';
+		
         $lista = implode($array, ',');
         return "$field not in ($lista)";
     }
