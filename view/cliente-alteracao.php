@@ -43,6 +43,14 @@
             &nbsp;
 			</a>
           </li>
+		  <li class="nav-item">
+            <a href="login.php?logout=logout" class="nav-link border border-light rounded waves-effect"> 
+            &nbsp;
+			  <i class="fas fa-user"></i>
+			  <span class="clearfix d-none d-sm-inline-block"> Logout</span>
+            &nbsp;
+			</a>
+          </li>
         </ul>
       <!-- Links -->
     </div>
