@@ -1,7 +1,8 @@
 <?php
-if(isset($_SESSION['username'])){
+if(isset($_SESSION['user'])){
 	$mensagem = null;
-	$cliente = Cliente::first("email='".$_SESSION['username']."'");
+	($_SESSION['user'])->refresh();
+	$cliente = $_SESSION['user'];
 	if(isset($_POST['alterar_cliente'])){
 		$nome = filter_var($_REQUEST['nome'], FILTER_SANITIZE_STRING);
 		$cpf = filter_var($_REQUEST['cpf'], FILTER_SANITIZE_STRING);
@@ -22,11 +23,15 @@ if(isset($_SESSION['username'])){
 			$cliente->email = $email;
 			$cliente->senha = password_hash($senha, PASSWORD_DEFAULT);
 			$cliente->save();
+			header('Location:'.root('cliente/menu'));
+			die();
+			
 		}
 	}
 	include("view/cliente-alteracao.php");
 }
 else{
-	include("view/404.php");
+	header('Location:'.root('cliente/login'));
+	die();
 }
 ?>

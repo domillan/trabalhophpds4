@@ -178,7 +178,8 @@ class DBClass
 
     public function refresh()
     {
-        $pk = $this->data[$this->primary];
+		$class = get_called_class();
+        $pk = $this->data[$class::primary];
         if($self = $this::find($pk))
         {
             $this->set($self());

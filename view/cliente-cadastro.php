@@ -36,7 +36,7 @@
 			</a>
           </li>
           <li class="nav-item">
-            <a href="menu.php" class="nav-link border border-light rounded waves-effect"> 
+            <a href='<?= root('cliente/menu')?>' class="nav-link border border-light rounded waves-effect"> 
             &nbsp;
 			  <i class="fas fa-user"></i>
 			  <span class="clearfix d-none d-sm-inline-block"> Conta </span> 
@@ -58,7 +58,7 @@
 
                     <!--Form with header-->
 
-                    <form method="POST" action="cadastro.php">
+                    <form method="POST" action="<?=root('cliente/cadastro')?>">
                         <div class="card border-primary rounded-0">
                             <div class="card-header p-0">
                                 <div class="bg-info text-white text-center py-2">
@@ -71,37 +71,45 @@
                                 <!--Body-->
                                 <div class="form-group">
                                     <div class="input-group mb-2">
+                                    <label for='nome'>
                                         <div class="input-group-prepend">
-                                            <div class="input-group-text"><i class="fa fa-user text-info"></i></div>
+                                            <div class="input-group-text"><i class="fa fa-user text-info"></i>&nbsp;Nome </div>
                                         </div>
-                                        <label>Nome: <input class="form-control" type='text' name='nome' required></label><br>
+									</label>
+									<input class="form-control" type='text' id="nome" name='nome' required><br>
                                     </div>
                                 </div>
 								
 								<div class="form-group">
                                     <div class="input-group mb-2">
+									<label for='cpf'>
                                         <div class="input-group-prepend">
-                                            <div class="input-group-text"><i class="fa fa-comment text-info"></i></div>
+                                            <div class="input-group-text"><i class="fa fa-comment text-info"></i>&nbsp;&nbsp;CPF &nbsp;</div>
                                         </div>
-                                        <label>CPF:  <input class="form-control" type='text' name='cpf' required></label><br>
+									</label>
+									<input class="form-control" type='text' id="cpf" name='cpf' required><br>
                                     </div>
                                 </div>
 								
                                 <div class="form-group">
                                     <div class="input-group mb-2">
+									<label for='email'>
                                         <div class="input-group-prepend">
-                                            <div class="input-group-text"><i class="fa fa-envelope text-info"></i></div>
+                                            <div class="input-group-text"><i class="fa fa-envelope text-info"></i>&nbsp;E-mail </div>
                                         </div>
-                                        <label>E-mail: <input type="email" class="form-control" id="email" name="email" placeholder="Seu email" required></label>
+									</label>
+									<input type="email" class="form-control" id="email" name="email" required>
                                     </div>
                                 </div>
 
                                 <div class="form-group">
                                     <div class="input-group mb-2">
+                                    <label for='senha'>
                                         <div class="input-group-prepend">
-                                            <div class="input-group-text"><i class="fa fa-comment text-info"></i></div>
+                                            <div class="input-group-text"><i class="fa fa-key text-info"></i>&nbsp;Senha </div>
                                         </div>
-                                        <label>Senha: <input class="form-control" type='password' name='senha' required></label><br>
+									</label>
+									<input class="form-control" type='password' id="senha" name='senha' required><br>
                                     </div>
                                 </div>
 

@@ -36,18 +36,10 @@
 			</a>
           </li>
           <li class="nav-item">
-            <a href="menu.php" class="nav-link border border-light rounded waves-effect"> 
+            <a href='<?= root('cliente/menu')?>' class="nav-link border border-light rounded waves-effect"> 
             &nbsp;
 			  <i class="fas fa-user"></i>
-			  <span class="clearfix d-none d-sm-inline-block"> <?php echo $cliente->nome;?> </span> 
-            &nbsp;
-			</a>
-          </li>
-		  <li class="nav-item">
-            <a href="login.php?logout=logout" class="nav-link border border-light rounded waves-effect"> 
-            &nbsp;
-			  <i class="fas fa-user"></i>
-			  <span class="clearfix d-none d-sm-inline-block"> Logout</span>
+			  <span class="clearfix d-none d-sm-inline-block"> Conta </span> 
             &nbsp;
 			</a>
           </li>
@@ -75,44 +67,50 @@
                                 </div>
                             </div>
                             <div class="card-body p-3">
-
-                                <!--Body-->
-                                <div class="form-group">
+<div class="form-group">
                                     <div class="input-group mb-2">
+                                    <label for='nome'>
                                         <div class="input-group-prepend">
-                                            <div class="input-group-text"><i class="fa fa-user text-info"></i></div>
+                                            <div class="input-group-text"><i class="fa fa-user text-info"></i>&nbsp;Nome </div>
                                         </div>
-                                        <label>Nome: <input class="form-control" type='text' name='nome' value="<?php echo $cliente->nome;?>" required></label><br>
+									</label>
+									<input class="form-control" type='text' id="nome" value="<?= $cliente->nome;?>" name='nome' required><br>
                                     </div>
                                 </div>
 								
 								<div class="form-group">
                                     <div class="input-group mb-2">
+									<label for='cpf'>
                                         <div class="input-group-prepend">
-                                            <div class="input-group-text"><i class="fa fa-comment text-info"></i></div>
+                                            <div class="input-group-text"><i class="fa fa-comment text-info"></i>&nbsp;&nbsp;CPF &nbsp;</div>
                                         </div>
-                                        <label>CPF:  <input class="form-control" type='text' name='cpf' value = "<?php echo $cliente->cpf;?>" required></label><br>
+									</label>
+									<input class="form-control" type='text' value="<?= $cliente->cpf;?>" id="cpf" name='cpf' required><br>
                                     </div>
                                 </div>
 								
                                 <div class="form-group">
                                     <div class="input-group mb-2">
+									<label for='email'>
                                         <div class="input-group-prepend">
-                                            <div class="input-group-text"><i class="fa fa-envelope text-info"></i></div>
+                                            <div class="input-group-text"><i class="fa fa-envelope text-info"></i>&nbsp;E-mail </div>
                                         </div>
-                                        <label>E-mail: <input type="email" class="form-control" id="email" name="email" value="<?php echo $cliente->email;?>" required></label>
+									</label>
+									<input type="email" class="form-control" value="<?= $cliente->email;?>" id="email" name="email" required>
                                     </div>
                                 </div>
 
                                 <div class="form-group">
                                     <div class="input-group mb-2">
+                                    <label for='senha'>
                                         <div class="input-group-prepend">
-                                            <div class="input-group-text"><i class="fa fa-comment text-info"></i></div>
+                                            <div class="input-group-text"><i class="fa fa-key text-info"></i>&nbsp;Senha </div>
                                         </div>
-                                        <label>Senha: <input class="form-control" type='password' name='senha' required></label><br>
+									</label>
+									<input class="form-control" type='password' id="senha" name='senha' required><br>
                                     </div>
                                 </div>
-
+          
                                 <div class="text-center">
                                     <input type="submit" value="Enviar" name="alterar_cliente" class="btn btn-info btn-block rounded-0 py-2">
                                 </div>

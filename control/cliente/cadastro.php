@@ -1,9 +1,5 @@
 <?php
-if (isset($_GET['logout'])){
-	unset($_SESSION['username']);
-	header('Location: login.php');
-}
-if(!isset($_SESSION['username'])){
+if(!isset($_SESSION['user'])){
 	$mensagem = null;
 	if ($_SERVER['REQUEST_METHOD'] == 'POST'){
 		$nome = filter_var($_REQUEST['nome'], FILTER_SANITIZE_STRING);
@@ -26,13 +22,16 @@ if(!isset($_SESSION['username'])){
 			$cliente->email = $email;
 			$cliente->senha = password_hash($senha, PASSWORD_DEFAULT);
 			$cliente->save();
-			$_SESSION['username'] = $cliente->email;
-			header('Location: menu.php');
+			$_SESSION['user'] = $cliente;
+			
+			header('Location: '.root());
+			die();
 		}
 	}
 	include("view/cliente-cadastro.php");	
 }
 else {
-	header('Location: menu.php');
+	header('Location: '.root('cliente/menu'));
+	die();
 }	
 ?>

@@ -36,7 +36,7 @@
 			</a>
           </li>
           <li class="nav-item">
-            <a href="" class="nav-link border border-light rounded waves-effect"> 
+            <a href='<?= root('cliente/menu')?>' class="nav-link border border-light rounded waves-effect"> 
             &nbsp;
 			  <i class="fas fa-user"></i>
 			  <span class="clearfix d-none d-sm-inline-block"> Conta </span> 
@@ -58,7 +58,7 @@
 
                     <!--Form with header-->
 
-                    <form method="POST" action="login.php">
+                    <form method="POST" action="<?=root('cliente/login')?>">
                         <div class="card border-primary rounded-0">
                             <div class="card-header p-0">
                                 <div class="bg-info text-white text-center py-2">
@@ -66,25 +66,29 @@
                                     <p class="m-0">Ou <a href="cadastro.php">cadastre-se</a></p>
                                 </div>
                             </div>
-                            <div class="card-body p-3">
+                            <div class="card-body p-3 text-center">
 
                                 <!--Body-->
 								
-                                <div class="form-group">
-                                    <div class="input-group mb-2">
+								
+                                <div class="form-group w-100">
+                                    <div class="input-group mb-3">
+									<label for='email'>
                                         <div class="input-group-prepend">
-                                            <div class="input-group-text"><i class="fa fa-envelope text-info"></i></div>
+                                            <div class="input-group-text"><i class="fa fa-envelope text-info"></i>&nbsp;E-mail </div>
                                         </div>
-                                        <label>E-mail: <input type="email" class="form-control" id="email" name="email" placeholder="Seu email" required></label>
+									</label>
+                                        <input type="email" class="form-control" id="email" name="email" placeholder="Seu e-mail" required>
                                     </div>
                                 </div>
-
                                 <div class="form-group">
                                     <div class="input-group mb-2">
+									<label for='senha'>
                                         <div class="input-group-prepend">
-                                            <div class="input-group-text"><i class="fa fa-comment text-info"></i></div>
+                                            <div class="input-group-text"><i class="fa fa-key text-info"></i>&nbsp;Senha </div>
                                         </div>
-                                        <label>Senha: <input class="form-control" type='password' name='senha' required></label><br>
+									</label>
+                                        <input class="form-control" type='password' name='senha' id='senha' placeholder="Sua senha" required><br>
                                     </div>
                                 </div>
 

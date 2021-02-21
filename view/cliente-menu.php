@@ -36,18 +36,10 @@
 			</a>
           </li>
           <li class="nav-item">
-            <a href="menu.php" class="nav-link border border-light rounded waves-effect"> 
+            <a href='<?= root('cliente/menu')?>' class="nav-link border border-light rounded waves-effect"> 
             &nbsp;
 			  <i class="fas fa-user"></i>
-			  <span class="clearfix d-none d-sm-inline-block"> <?php echo $cliente->nome;?> </span> 
-            &nbsp;
-			</a>
-          </li>
-		  <li class="nav-item">
-            <a href="login.php?logout=logout" class="nav-link border border-light rounded waves-effect"> 
-            &nbsp;
-			  <i class="fas fa-user"></i>
-			  <span class="clearfix d-none d-sm-inline-block"> Logout</span>
+			  <span class="clearfix d-none d-sm-inline-block"> Conta </span> 
             &nbsp;
 			</a>
           </li>
@@ -81,7 +73,12 @@
                                     <a href="">Minhas compras</a>
                                 </div>
                             </div>
-							
+							<div class="border-top card-body p-3">
+                                <div class="text-center">
+                                    <a href="<?= root('cliente/logout')?>">Sair</a>
+                                </div>
+                            </div>
+						
 							</div>
                     <!--Form with header-->
                </div>
