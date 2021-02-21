@@ -23,7 +23,7 @@
     <div class="container">
 
       <!-- Brand -->
-      <a class="navbar-brand waves-effect" href="./">
+      <a class="navbar-brand waves-effect" href="<?=root()?>">
         <strong class="blue-text"><?=$GLOBALS['APP_NAME']?></strong>
       </a>
 
@@ -74,17 +74,17 @@
 
             <div class="mb-3">
 			<?php foreach($produto->categorias()->all() as $categoria):?>
-              <a href="">
-                <span class="badge red mr-1"><?=$categoria->descricao?></span>
+              <a href="<?=root('?categoria='.$categoria->getPrimary())?>">
+                <span class="badge badge-pill text-uppercase danger-color"><?=$categoria->descricao?></span>
               </a>
 			<?php endforeach;?>
             </div>
 
-            <p class="lead">
-              <span>R$<?=$produto->preco?></span>
-            </p>
-
             <p class="lead font-weight-bold"><?=$produto->nome?></p>
+			
+            <p class="lead">
+              <span>R$<?=number_format($produto->preco, 2, ',', '.')?></span>
+            </p>
 
             <form action='<?=root('compra/produto')?>' class="d-flex justify-content-left">
               <!-- Default input -->
@@ -148,6 +148,8 @@
     <div class="footer-copyright py-3">
       © 2019 Copyright:
       <a href="https://mdbootstrap.com/education/bootstrap/" target="_blank"> MDBootstrap.com </a>
+	  <br>
+	  Daniel Oliveira Millan & Eduarda Dias Martins
     </div>
     <!--/.Copyright-->
 

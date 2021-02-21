@@ -23,7 +23,7 @@
     <div class="container">
 
       <!-- Brand -->
-      <a class="navbar-brand waves-effect" href="./">
+      <a class="navbar-brand waves-effect" href="<?=root()?>">
         <strong class="blue-text"><?=$GLOBALS['APP_NAME']?></strong>
       </a>
 
@@ -71,7 +71,6 @@
 				  <h5 class="mb-4">Carrinho</h5>
 				  <?php if (!sizeof($produtos)):?>
 				  <h5>Seu carrinho está vazio!</h5>
-				  <a href="<?=root()?>">Continue comprando</a>
 				  <?php endif;?>
 				  
 				  <?php foreach ($produtos as $produto):?>
@@ -93,6 +92,9 @@
 							<p class="mb-3 text-muted text-uppercase small">
 							<?=$produto->descricao?>
 							</p>
+							<p class="mb-3 text-muted text-uppercase small">
+							Valor unitário: R$ <?=number_format($produto->preco, 2, ',', '.')?>
+							</p>
 						  </div>
 						  <div>
 						  <form action='<?=root('compra/edita')?>'>
@@ -112,13 +114,13 @@
 							<a href=<?=root('compra/edita')."?quantidade=0&id=".$produto->id?>" type="button" class="card-link-secondary small text-uppercase mr-3"><i
 								class="fas fa-trash-alt mr-1"></i> Remover item </a>
 						  </div>
-						  <p class="mb-0"><span><strong>R$ <?=$qtd*$produto->preco?></strong></span></p class="mb-0">
+						  <p class="mb-0"><span><strong>R$ <?=number_format($qtd*$produto->preco, 2, ',', '.')?></strong></span></p class="mb-0">
 						</div>
 					  </div>
 					</div>
 				  </div>
 				  <?php $total+=$qtd*$produto->preco; endforeach;?>
-				  <br><br>
+				  <br>
 				  <p class="text-primary mb-0"><i class="fas fa-info-circle mr-1"></i> info para o cliente.</p>
 
 				</div>
@@ -145,9 +147,14 @@
 					  <div>
 						<strong>Valor a pagar:</strong>
 					  </div>
-					  <span><strong>R$ <?=$total?></strong></span>
+					  <span><strong>R$ <?=number_format($total, 2, ',', '.')?></strong></span>
 					</li>
 				  </ul>
+				  
+				  <a href="<?=root()?>" type="button" class="btn btn-info btn-block">Continue comprando</a>
+				  <br>
+				  <br>
+				  
 					<?php if (sizeof($produtos)):?> 
 						<a href='<?=root('compra/finalizar')?>' type="button" class="btn btn-primary btn-block">Fechar compra</a>
 					<?php else:?>
@@ -194,6 +201,8 @@
     <div class="footer-copyright py-3">
       © 2019 Copyright:
       <a href="https://mdbootstrap.com/education/bootstrap/" target="_blank"> MDBootstrap.com </a>
+	  <br>
+	  Daniel Oliveira Millan & Eduarda Dias Martins
     </div>
     <!--/.Copyright-->
 
