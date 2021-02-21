@@ -27,12 +27,12 @@ if(!isset($_SESSION['username'])){
 			$cliente->senha = password_hash($senha, PASSWORD_DEFAULT);
 			$cliente->save();
 			$_SESSION['username'] = $cliente->email;
-			header('Location: alteracao.php');
+			header('Location: menu.php');
 		}
 	}
 	include("view/cliente-cadastro.php");	
 }
 else {
-	header('Location: alteracao.php');
+	header('Location: menu.php');
 }	
 ?>

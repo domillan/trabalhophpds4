@@ -58,76 +58,33 @@
   <!-- Navbar -->
 
 <div class="mt-5 page-wrap d-flex flex-row align-items-center">
-
     <div class="container mt-4 pt-4">
 	<div class="row justify-content-center">
 		<div class="col-12 col-md-8 col-lg-6 pb-5">
-
-
                     <!--Form with header-->
-
-                    <form method="POST" action="alteracao.php">
                         <div class="card border-primary rounded-0">
                             <div class="card-header p-0">
                                 <div class="bg-info text-white text-center py-2">
-                                    <h3><i class="fa fa-envelope"></i>Alteração de dados</h3>
+                                    <h3><i class="fa fa-envelope"></i>Menu</h3>
                                     <p class="m-0">Olá, <?php echo $cliente->nome;?>!</a></p>
                                 </div>
                             </div>
+							
                             <div class="card-body p-3">
-
-                                <!--Body-->
-                                <div class="form-group">
-                                    <div class="input-group mb-2">
-                                        <div class="input-group-prepend">
-                                            <div class="input-group-text"><i class="fa fa-user text-info"></i></div>
-                                        </div>
-                                        <label>Nome: <input class="form-control" type='text' name='nome' value="<?php echo $cliente->nome;?>" required></label><br>
-                                    </div>
-                                </div>
-								
-								<div class="form-group">
-                                    <div class="input-group mb-2">
-                                        <div class="input-group-prepend">
-                                            <div class="input-group-text"><i class="fa fa-comment text-info"></i></div>
-                                        </div>
-                                        <label>CPF:  <input class="form-control" type='text' name='cpf' value = "<?php echo $cliente->cpf;?>" required></label><br>
-                                    </div>
-                                </div>
-								
-                                <div class="form-group">
-                                    <div class="input-group mb-2">
-                                        <div class="input-group-prepend">
-                                            <div class="input-group-text"><i class="fa fa-envelope text-info"></i></div>
-                                        </div>
-                                        <label>E-mail: <input type="email" class="form-control" id="email" name="email" value="<?php echo $cliente->email;?>" required></label>
-                                    </div>
-                                </div>
-
-                                <div class="form-group">
-                                    <div class="input-group mb-2">
-                                        <div class="input-group-prepend">
-                                            <div class="input-group-text"><i class="fa fa-comment text-info"></i></div>
-                                        </div>
-                                        <label>Senha: <input class="form-control" type='password' name='senha' required></label><br>
-                                    </div>
-                                </div>
-
                                 <div class="text-center">
-                                    <input type="submit" value="Enviar" name="alterar_cliente" class="btn btn-info btn-block rounded-0 py-2">
+                                    <a href="alteracao.php">Alterar meus dados</a>
                                 </div>
                             </div>
-							<?php if($mensagem!=null):?>
-							<div class="alert alert-danger ml-2 mr-2" role="alert">
-							  <?php echo $mensagem; ?>
+							
+							<div class="border-top card-body p-3">
+                                <div class="text-center">
+                                    <a href="">Minhas compras</a>
+                                </div>
+                            </div>
+							
 							</div>
-							<?php endif;?>
-                        </div>
-                    </form>
                     <!--Form with header-->
-
-
-                </div>
+               </div>
 	</div>
 </div>
 </div>

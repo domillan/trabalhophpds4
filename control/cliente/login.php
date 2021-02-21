@@ -16,7 +16,7 @@ if(!isset($_SESSION['username'])){
 			else{
 				if(password_verify($senha, $cliente->senha)){
 					$_SESSION['username'] = $cliente->email;
-					header('Location: alteracao.php');
+					header('Location: menu.php');
 				
 				}
 				else {

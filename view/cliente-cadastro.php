@@ -36,7 +36,7 @@
 			</a>
           </li>
           <li class="nav-item">
-            <a href="" class="nav-link border border-light rounded waves-effect"> 
+            <a href="menu.php" class="nav-link border border-light rounded waves-effect"> 
             &nbsp;
 			  <i class="fas fa-user"></i>
 			  <span class="clearfix d-none d-sm-inline-block"> Conta </span> 
