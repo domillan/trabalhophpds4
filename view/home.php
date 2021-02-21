@@ -5,7 +5,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <meta http-equiv="x-ua-compatible" content="ie=edge">
-  <title>Material Design Bootstrap</title>
+  <title>Cantina Virtual</title>
   <!-- Font Awesome -->
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.11.2/css/all.css">
   <!-- Bootstrap core CSS -->
@@ -110,7 +110,7 @@
               <a class="nav-link" href="<?=root("?categoria=0&busca=$busca")?>">Todos
               </a>
             </li>
-          
+		  
 			<?php foreach(Categoria::all() as $cat):?>
 			
 			<?php if($categoria==$cat->getPrimary()):?>
@@ -124,7 +124,7 @@
 
           </ul>
           <!-- Links -->
-
+			<a class='text-white' href='<?=root('?categoria='.$categoria."&busca=")?>'>X</a>
           <form class="form-inline">
             <div class="md-form my-0">
 			<input name='categoria' value='<?=$categoria?>' type="hidden">
@@ -143,6 +143,13 @@
 
         <!--Grid row-->
         <div class="row wow fadeIn">
+
+		  <?php if(!sizeof($produtos)):?><div class="col-md-12 text-center mb-4">
+		  <h5>Sua busca não retornou resultados.</h5>
+		  </div>
+		  
+			<?php endif;?>
+
 
 <?php foreach($produtos as $produto):?>
 		  <!--Grid column-->

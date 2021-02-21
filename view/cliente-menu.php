@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <meta http-equiv="x-ua-compatible" content="ie=edge">
-  <title>Cadastro</title>
+  <title>Menu da Conta</title>
   <!-- Font Awesome -->
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.11.2/css/all.css">
   <!-- Bootstrap core CSS -->
@@ -64,13 +64,13 @@
 							
                             <div class="card-body p-3">
                                 <div class="text-center">
-                                    <a href="alteracao.php">Alterar meus dados</a>
+                                    <a href="<?=root("cliente/alteracao")?>">Alterar meus dados</a>
                                 </div>
                             </div>
 							
 							<div class="border-top card-body p-3">
                                 <div class="text-center">
-                                    <a href="">Minhas compras</a>
+                                    <a href="<?=root("compra/lista")?>">Minhas compras</a>
                                 </div>
                             </div>
 							<div class="border-top card-body p-3">

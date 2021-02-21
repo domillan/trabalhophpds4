@@ -21,6 +21,26 @@ class Compra extends DBClass{
         return $this->manyToOne(FormaPagamento::class, 'pagamento_id');
     }
 	
+	public function total()
+	{
+		$total=0;
+		foreach($this->produtos()->get() as $prod)
+		{
+			$total+= ($this->produtos()->getPivotField($prod, 'quantidade')*$prod->preco);
+		}
+		return $total;
+	}
+	
+	public function subtotal($produto)
+	{
+		return $this->produtos()->getPivotField($produto, 'quantidade') * $produto->preco;
+	}
+	
+	public function quantidade($produto)
+	{
+		return $this->produtos()->getPivotField($produto, 'quantidade');
+	}
+	
 }
 
 ?>

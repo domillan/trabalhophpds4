@@ -76,7 +76,7 @@
                                         <div class="input-group-prepend">
                                             <div class="input-group-text"><i class="fa fa-user text-info"></i></div>
                                         </div>
-                                        <input type="text" class="form-control" id="nome" name="nome" placeholder="Seu nome" required>
+                                        <input type="text" required class="form-control" value='<?=$nome?>' id="nome" name="nome" placeholder="Seu nome" required>
                                     </div>
                                 </div>
                                 <div class="form-group">
@@ -84,7 +84,7 @@
                                         <div class="input-group-prepend">
                                             <div class="input-group-text"><i class="fa fa-envelope text-info"></i></div>
                                         </div>
-                                        <input type="email" class="form-control" id="email" name="email" placeholder="Seu email" required>
+                                        <input type="email" required class="form-control" value='<?=$email?>' id="email" name="email" placeholder="Seu email" required>
                                     </div>
                                 </div>
 
@@ -93,7 +93,7 @@
                                         <div class="input-group-prepend">
                                             <div class="input-group-text"><i class="fa fa-comment text-info"></i></div>
                                         </div>
-                                        <textarea class="form-control" id="mensagem" name="mensagem" placeholder="Sua mensagem" required></textarea>
+                                        <textarea required class="form-control" id="mensagem" name="mensagem" placeholder="Sua mensagem" required></textarea>
                                     </div>
                                 </div>
 

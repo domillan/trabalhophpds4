@@ -5,7 +5,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <meta http-equiv="x-ua-compatible" content="ie=edge">
-  <title>Meu carrinho</title>
+  <title>Meus pedidos</title>
   <!-- Font Awesome -->
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.11.2/css/all.css">
   <!-- Bootstrap core CSS -->
@@ -62,110 +62,51 @@
 		  <div class="row md-12">
 
 			<!--Grid column-->
-			<div class="col-lg-8">
+			<div class="col-lg-12">
 
 			  <!-- Card -->
 			  <div class="card mb-3">
 				<div class=" card-body pt-4 wish-list">
 
-				  <h5 class="mb-4">Carrinho <span class="badge badge-warning badge-pill"> <?=sizeof($produtos)?> </span></h5>
-				  <?php if (!sizeof($produtos)):?>
-				  <h5>Seu carrinho está vazio!</h5>
-				  <?php endif;?>
+				  <h5 class="mb-4"> Seus pedidos </h5>
 				  
-				  <?php foreach ($produtos as $produto):?>
+				  <?php foreach ($compras as $compra):?>
 				  <hr class="mb-4">
 				  <div class="row mb-4">
-					<div class="col-md-5 col-lg-3 col-xl-3">
-					  <div class="view zoom overlay z-depth-1 rounded mb-3 mb-md-0">
-						<img class="img-fluid w-100"
-						  src="<?=root("img/produtos/$produto->imagem")?>" alt="Sample">
-					  </div>
-					</div>
-					<div class="col-md-7 col-lg-9 col-xl-9">
+					<div class="col-md-12 col-lg-12 col-xl-12">
 					  <div>
 						<div class="d-flex justify-content-between">
 						  <div>
-							<a href="<?=root('produto/detalhes?id='.$produto->getPrimary())?>">
-							<h5><?=$produto->nome?></h5>
+							<a href="<?=root('compra/detalhes?id='.$compra->getPrimary())?>">
+							<h5>Pedido nº <?=str_pad($compra->getPrimary(), 7, '0', STR_PAD_LEFT)?></h5>
 							</a>
 							<p class="mb-3 text-muted text-uppercase small">
-							<?=$produto->descricao?>
-							</p>
-							<p class="mb-3 text-muted text-uppercase small">
-							Valor unitário: R$ <?=number_format($produto->preco, 2, ',', '.')?>
+							<strong>Data : </strong> <?=(new DateTime($compra->horario))->format('d/m/Y - H:i')?><br>
+							<strong>Número de produtos: </strong> <?=sizeof($compra->produtos()->all())?><br>
+							<strong>Valor: </strong> R$ <?=number_format($compra->total(), 2, ',', '.')?><br>
+							<strong>Forma de pagamento: </strong> <?=$compra->formaPagamento()->first()->descricao?>
 							</p>
 						  </div>
 						  <div>
-						  <form action='<?=root('compra/edita')?>'>
-							  <div class="input-group w-50 float-right">
-							  <input name="id" value="<?= $produto->getPrimary();?>" type="hidden">
-								<input class="form-control text-center" min="1" name="quantidade" value="<?=$carrinho->quantidade($produto);?>" type="number">
-								<div class="input-group-append">
-								  <button class="btn-primary btn-sm"><i class="fa fa-edit" aria-hidden="true"></i></button>
-								</div>
-								
-							  </div>
-						  </form>
 						  </div>
-						</div>
-						<div class="d-flex justify-content-between align-items-center">
-						  <div>
-							<a href=<?=root('compra/edita')."?quantidade=0&id=".$produto->id?>" type="button" class="card-link-secondary small text-uppercase mr-3"><i
-								class="fas fa-trash-alt mr-1"></i> Remover item </a>
-						  </div>
-						  <p class="mb-0"><span><strong>R$ <?=number_format($carrinho->subtotal($produto), 2, ',', '.')?></strong></span></p class="mb-0">
 						</div>
 					  </div>
 					</div>
 				  </div>
 				  <?php endforeach;?>
-				  <br><p class="text-primary mb-0"><i class="fas fa-info-circle mr-1"></i> Por favor, realize seu pedido com 30 minutos de antecedência.</p>
-
-
-				</div>
-			  </div>
-			  <!-- Card -->
-
-
-
-			</div>
-			<!--Grid column-->
-
-			<!--Grid column-->
-			<div class="col-lg-4">
-
-			  <!-- Card -->
-			  <div class="card mb-3">
-				<div class="card-body pt-4">
-
-				  <h5 class="mb-3">Resumo do carrinho</h5>
-
-				  <ul class="list-group list-group-flush">
-					
-					<li class="list-group-item d-flex justify-content-between align-items-center border-0 px-0 mb-3">
-					  <div>
-						<strong>Valor a pagar:</strong>
-					  </div>
-					  <span><strong>R$ <?=number_format($total, 2, ',', '.')?></strong></span>
-					</li>
-				  </ul>
+				  <br>
 				  
 				  <a href="<?=root()?>" type="button" class="btn btn-info btn-block">Continue comprando</a>
-				  <br>
-				  <br>
 				  
-					<?php if (sizeof($produtos)):?> 
-						<a href='<?=root('compra/finalizar')?>' type="button" class="btn btn-primary btn-block">Fechar compra</a>
-					<?php else:?>
-					<button type="button" disabled class="btn btn-primary btn-block">Fechar compra</a>
-					<?php endif;?>
+				  
 				</div>
 			  </div>
 			  <!-- Card -->
 
+
+
 			</div>
-			<!--Grid column-->
+			
 
 		  </div>
 		  <!-- Grid row -->

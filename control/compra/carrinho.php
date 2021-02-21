@@ -5,6 +5,6 @@ if( !isset($_SESSION["carrinho"]) ){
 
 $carrinho = $_SESSION["carrinho"];
 $produtos = $carrinho->produtos()->get();
-$total = 0;
+$total = $carrinho->total();
 require_once("view/carrinho.php");
 ?>
