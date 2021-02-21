@@ -10,7 +10,9 @@ if (isset($_POST['logar'])){
 		}
 		else{
 			if(password_verify($senha, $cliente->senha)){
-				header('Location: cadastro.php');
+				$_SESSION['username'] = $cliente->email;
+				header('Location: alteracao.php');
+			
 			}
 			else {
 				$mensagem = "Senha incorreta.";
