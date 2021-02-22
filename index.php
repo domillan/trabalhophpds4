@@ -9,7 +9,7 @@ function path()
 	$path = $_SERVER['REQUEST_URI'];
 	$path = explode("?", $path)[0];
 
-	$path = str_replace ( root() , '' , $path);
+	$path = str_replace ( '#'.root() , '' , '#'.$path);
 
 	if($path == '')
 	$path = 'index';
@@ -33,7 +33,31 @@ function root($path='')
 
 function email($to, $subject, $message, $from)
 {
-	mail($to, $subject, $message, "From: ");
+	mail($to, $subject, $message, "From: $from");
+}
+
+function validaCPF($cpf) {
+
+    $cpf = preg_replace( '/[^0-9]/is', '', $cpf );
+
+    if (strlen($cpf) != 11) {
+        return false;
+    }
+
+    if (preg_match('/(\d)\1{10}/', $cpf)) {
+        return false;
+    }
+
+    for ($t = 9; $t < 11; $t++) {
+        for ($d = 0, $c = 0; $c < $t; $c++) {
+            $d += $cpf[$c] * (($t + 1) - $c);
+        }
+        $d = ((10 * $d) % 11) % 10;
+        if ($cpf[$c] != $d) {
+            return false;
+        }
+    }
+    return true;
 }
 
 
@@ -45,8 +69,6 @@ $GLOBALS['APP_NAME'] = 'Cantina Virtual';
 $GLOBALS['PATH_INFO'] = pathinfo($_SERVER['SCRIPT_FILENAME']);
 $GLOBALS['ROOT'] = str_replace ( '/'.$GLOBALS['PATH_INFO']['basename'] , '' , $_SERVER['SCRIPT_NAME']);
 
-//Caminho real da pasta
-//$diretorio = $GLOBALS['PATH_INFO']['dirname'];
 
 //Conexão com o banco do 000
 //DB::setConnection('localhost', 'id16136785_trabalho', 'DanielEduarda2021!', 'id16136785_trabalhophpds4');

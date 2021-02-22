@@ -1,6 +1,6 @@
 <?php
 
-if( !isset($_REQUEST["id"]) || $_SESSION["user"]->compras()->where(Compra::primary." = '$id'")){
+if( !isset($_REQUEST["id"]) || !isset($_SESSION["user"])|| null==($_SESSION["user"])->compras()->first(Compra::primary.' = "'.$_REQUEST["id"].'"')){
 	require_once('control/404.php');
 }
 

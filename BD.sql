@@ -10,7 +10,7 @@ CREATE TABLE `cliente` (
   `nome` varchar(200) COLLATE utf8_unicode_ci NOT NULL,
   `cpf` varchar(15) COLLATE utf8_unicode_ci NOT NULL,
   `email` varchar(200) COLLATE utf8_unicode_ci NOT NULL,
-  `senha` varchar(30) COLLATE utf8_unicode_ci NOT NULL
+  `senha` varchar(256) COLLATE utf8_unicode_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 
@@ -97,4 +97,35 @@ ALTER TABLE `produto_compra`
 ALTER TABLE `produto_categoria`
   ADD CONSTRAINT `produto_categoria_ibfk_1` FOREIGN KEY (`categoria_id`) REFERENCES `categoria` (`id`),
   ADD CONSTRAINT `produto_categoria_ibfk_2` FOREIGN KEY (`produto_id`) REFERENCES `produto` (`id`);
+
+
+INSERT INTO `categoria`(`id`, `descricao`) VALUES (1,"Destaque");
+INSERT INTO `categoria`(`id`, `descricao`) VALUES (2,"Comidas");
+INSERT INTO `categoria`(`id`, `descricao`) VALUES (3,"Bebidas");
+INSERT INTO `categoria`(`id`, `descricao`) VALUES (4,"Salgado");
+INSERT INTO `categoria`(`id`, `descricao`) VALUES (5,"Doce");
+INSERT INTO `categoria`(`id`, `descricao`) VALUES (6,"Refrigerante");
+INSERT INTO `categoria`(`id`, `descricao`) VALUES (7,"Suco");
+
+
+INSERT INTO `produto`(`id`, `nome`, `descricao`, `preco`, `imagem`) VALUES (1,"Salgadinho Doritos","Pacote de Salgadinho Doritos (Queijo Nacho). Peso: 200g. Contém glúten.",5,"prod1.png");
+INSERT INTO `produto`(`id`, `nome`, `descricao`, `preco`, `imagem`) VALUES (2,"Bolacha Negresco","Pacote de Bolacha Recheada Negresco. Peso: 90g. Contém glúten.",3,"prod2.png");
+INSERT INTO `produto`(`id`, `nome`, `descricao`, `preco`, `imagem`) VALUES (3,"Fruki Guaraná","Lata de Refrigerante Fruki Guaraná. Conteúdo: 300ml.",5,"prod3.png");
+INSERT INTO `produto`(`id`, `nome`, `descricao`, `preco`, `imagem`) VALUES (4,"Del Valle Uva","Lata de Suco de Uva Dell Valle. Conteúdo: 200ml.",4,"prod4.png");
+
+
+INSERT INTO `produto_categoria`(`produto_id`, `categoria_id`) VALUES (1,1);
+INSERT INTO `produto_categoria`(`produto_id`, `categoria_id`) VALUES (3,1);
+INSERT INTO `produto_categoria`(`produto_id`, `categoria_id`) VALUES (1,2);
+INSERT INTO `produto_categoria`(`produto_id`, `categoria_id`) VALUES (1,4);
+INSERT INTO `produto_categoria`(`produto_id`, `categoria_id`) VALUES (2,2);
+INSERT INTO `produto_categoria`(`produto_id`, `categoria_id`) VALUES (2,5);
+INSERT INTO `produto_categoria`(`produto_id`, `categoria_id`) VALUES (3,3);
+INSERT INTO `produto_categoria`(`produto_id`, `categoria_id`) VALUES (3,6);
+INSERT INTO `produto_categoria`(`produto_id`, `categoria_id`) VALUES (4,3);
+INSERT INTO `produto_categoria`(`produto_id`, `categoria_id`) VALUES (4,7);
+
+INSERT INTO `forma_pagamento`(`id`, `descricao`) VALUES (1,'Dinheiro');
+INSERT INTO `forma_pagamento`(`id`, `descricao`) VALUES (2,'Cartão (débito)');
+INSERT INTO `forma_pagamento`(`id`, `descricao`) VALUES (3,'Cartão (crédito)');
 

@@ -10,13 +10,21 @@ if(isset($_SESSION['user'])){
 		$email = $_REQUEST['email'];
 		$cpfExists = Cliente::first("cpf='".$cpf."'");
 		$emailExists = Cliente::first("email='".$email."'");
-		echo var_dump($cpfExists);
+		//echo var_dump($cpfExists);
 		if($emailExists!=null&&$emailExists->email!=$cliente->email){
 			$mensagem="E-mail já cadastrado. ";
 		}
-		else if($cpfExists != null&&$cpfExists->cpf!=$cliente->cpf){
+		elseif($cpfExists != null&& $cpfExists->cpf!=$cliente->cpf){
 			$mensagem="CPF já cadastrado. ";
-		}	
+		}
+		elseif(!filter_var($email, FILTER_VALIDATE_EMAIL))
+		{
+			$mensagem="E-mail inválido. ";
+		}
+		elseif(!validaCPF($cpf))
+		{
+			$mensagem="CPF inválido. ";
+		}
 		else{
 			$cliente->nome = $nome;
 			$cliente->cpf = $cpf;

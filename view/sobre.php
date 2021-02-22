@@ -5,7 +5,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <meta http-equiv="x-ua-compatible" content="ie=edge">
-  <title>Fale conosco</title>
+  <title>Sobre</title>
   <!-- Font Awesome -->
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.11.2/css/all.css">
   <!-- Bootstrap core CSS -->
@@ -55,59 +55,15 @@
 
     <div class="container mt-4 pt-4">
 	<div class="row justify-content-center">
-		<div class="col-12 col-md-8 col-lg-6 pb-5">
+		<div class="col-12 col-md-10 col-lg-20 pt-5 mt-5 mb-5 pb-5">
 
-
-                    <!--Form with header-->
-
-                    <form action="<?= root('cliente/contato')?>" method="post">
-                        <div class="card border-primary rounded-0">
-                            <div class="card-header p-0">
-                                <div class="bg-info text-white text-center py-2">
-                                    <h3><i class="fa fa-envelope"></i> Fale Conosco</h3>
-                                    <p class="m-0">Envie-nos uma mensagem</p>
-                                </div>
-                            </div>
-                            <div class="card-body p-3">
-
-                                <!--Body-->
-                                <div class="form-group">
-                                    <div class="input-group mb-2">
-                                        <div class="input-group-prepend">
-                                            <div class="input-group-text"><i class="fa fa-user text-info"></i></div>
-                                        </div>
-                                        <input type="text" required class="form-control" value='<?=$nome?>' id="nome" name="nome" placeholder="Seu nome" required>
-                                    </div>
-                                </div>
-                                <div class="form-group">
-                                    <div class="input-group mb-2">
-                                        <div class="input-group-prepend">
-                                            <div class="input-group-text"><i class="fa fa-envelope text-info"></i></div>
-                                        </div>
-                                        <input type="email" required class="form-control" value='<?=$email?>' id="email" name="email" placeholder="Seu email" required>
-                                    </div>
-                                </div>
-
-                                <div class="form-group">
-                                    <div class="input-group mb-2">
-                                        <div class="input-group-prepend">
-                                            <div class="input-group-text"><i class="fa fa-comment text-info"></i></div>
-                                        </div>
-                                        <textarea required class="form-control" id="mensagem" name="mensagem" placeholder="Sua mensagem" required></textarea>
-                                    </div>
-                                </div>
-
-                                <div class="text-center">
-                                    <input type="submit" value="Enviar" class="btn btn-info btn-block rounded-0 py-2">
-                                </div>
-                            </div>
-
-                        </div>
-                    </form>
-                    <!--Form with header-->
-
-
-                </div>
+		<h4>Esse site é um trabalho de Daniel Millan e Eduarda Martins do IFRS Canoas para a disciplina de Programação III.</h3>
+		<br>
+        <h4>Essa loja virtual é uma ferramenta para que a cantina do nosso campus possa realizar vendas pela internet.</h3>                
+        <br>
+        <h4>Tenha um bom dia!</h3>                
+        
+		</div>
 	</div>
 </div>
 </div>

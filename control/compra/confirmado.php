@@ -22,12 +22,11 @@ $carrinho->horario = (new DateTime('NOW'))->format('Y-m-d H:i:s');
 $carrinho->save();
 
 email(($_SESSION["user"])->email, "Pedido realizado",
-"Olá!<br>Seu pedido Nº ".str_pad($carrinho->getPrimary(), 7, '0', STR_PAD_LEFT).
+"Olá!\nSeu pedido Nº ".str_pad($carrinho->getPrimary(), 7, '0', STR_PAD_LEFT).
 ' foi realizado em '.(new DateTime($carrinho->horario))->format('d/m/Y - H:i').
-'<br>O valor do pedido é R$ '.number_format($carrinho->total(), 2, ',', '.').
+".\nO valor do pedido é R$ ".number_format($carrinho->total(), 2, ',', '.').
 ' e a forma de pagamento selecionada foi '.$carrinho->formaPagamento()->first()->descricao.
-'.<br>Para mais informações, <a href="'.root('compra/detalhes?id='.$carrinho->getPrimary()).
-'"> acesse o site.</a><br><br>Atenciosamente, '.$GLOBALS['APP_NAME'].'.',
+".\nPara mais informações, acesse o site.\n\nAtenciosamente, ".$GLOBALS['APP_NAME'].'.',
  "eduardam2002@gmail.com");
  
 unset($_SESSION["carrinho"]);

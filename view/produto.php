@@ -38,7 +38,7 @@
 			</a>
           </li>
           <li class="nav-item">
-            <a href="" class="nav-link border border-light rounded waves-effect"> 
+            <a href="<?= root('cliente/menu')?>" class="nav-link border border-light rounded waves-effect"> 
             &nbsp;
 			  <i class="fas fa-user"></i>
 			  <span class="clearfix d-none d-sm-inline-block"> Conta </span> 
@@ -89,7 +89,7 @@
             <form action='<?=root('compra/produto')?>' class="d-flex justify-content-left">
               <!-- Default input -->
               <input name='id' type="hidden" value="<?=$produto->getPrimary()?>">
-			  <input name='quantidade' type="number" value="1" aria-label="Search" class="form-control" style="width: 100px">
+			  <input name='quantidade' type="number" min='1' value="1" aria-label="Search" class="form-control" style="width: 100px">
               <button class="btn btn-primary btn-md my-0 p" type="submit">Adicionar ao carrinho
                 <i class="fas fa-shopping-cart ml-1"></i>
               </button>

@@ -183,6 +183,7 @@ class DBClass
         if($self = $this::find($pk))
         {
             $this->set($self());
+			$this->relations=[];
             return true;
         }
         return false;
@@ -192,7 +193,7 @@ class DBClass
     {
         $function = debug_backtrace()[1]["function"];
         if(!isset($this->relations[$function]))
-            $this->relations[$function] = new oneToMany($classOutra, $this, $fk);
+            $this->relations[$function] = new OneToMany($classOutra, $this, $fk);
         return $this->relations[$function];
     }
 

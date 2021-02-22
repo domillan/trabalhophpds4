@@ -1,4 +1,5 @@
 <?php
+
 if(!isset($_SESSION['user'])){
 	$mensagem = null;
 	if ($_SERVER['REQUEST_METHOD'] == 'POST'){
@@ -8,13 +9,21 @@ if(!isset($_SESSION['user'])){
 		$email = $_REQUEST['email'];
 		$cpfExists = Cliente::first("cpf='".$cpf."'");
 		$emailExists = Cliente::first("email='".$email."'");
-		echo var_dump($cpfExists);
+		//echo var_dump($cpfExists);
 		if($emailExists!=null){
 			$mensagem="E-mail já cadastrado. ";
 		}
-		else if($cpfExists != null){
+		elseif($cpfExists != null){
 			$mensagem="CPF já cadastrado. ";
 		}	
+		elseif(!filter_var($email, FILTER_VALIDATE_EMAIL))
+		{
+			$mensagem="E-mail inválido. ";
+		}
+		elseif(!validaCPF($cpf))
+		{
+			$mensagem="CPF inválido. ";
+		}
 		else{
 			$cliente = new Cliente();
 			$cliente->nome = $nome;

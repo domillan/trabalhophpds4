@@ -98,7 +98,7 @@
 						  </div>
 						  <div>
 						  <form action='<?=root('compra/edita')?>'>
-							  <div class="input-group w-50 float-right">
+							  <div class="input-group w-75 float-right">
 							  <input name="id" value="<?= $produto->getPrimary();?>" type="hidden">
 								<input class="form-control text-center" min="1" name="quantidade" value="<?=$carrinho->quantidade($produto);?>" type="number">
 								<div class="input-group-append">
